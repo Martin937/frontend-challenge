@@ -1,0 +1,169 @@
+/***
+    The new CSS reset - version 1.4.7 (last updated 27.1.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+}
+
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.content-container {
+  max-width: 1316px;
+  margin: 0 3.9vw;
+}
+
+.header {
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+}
+
+.nav__link {
+  display: inline-block;
+  padding: 1.7em;
+  color: #fff;
+  text-decoration: none;
+}
+.nav .active {
+  background: #1e88e5;
+}
+
+.main {
+  padding-top: 52px;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cart {
+  position: relative;
+  width: 225px;
+  height: 225px;
+  margin-bottom: 48px;
+}
+.cart .cart__icon_red {
+  display: none;
+}
+.cart .cart__icon_white {
+  display: none;
+}
+.cart .cart__icon_white:hover {
+  display: none;
+}
+.cart .cart__icon_white:hover ~ .cart__icon_red {
+  display: block;
+}
+.cart:hover {
+  z-index: 0;
+}
+.cart:hover .cart__icon_white {
+  display: block;
+  z-index: 10;
+}
+.cart__img {
+  height: 100%;
+}
+.cart__icon {
+  opacity: 1;
+  width: 40px;
+  height: 36.7px;
+  position: absolute;
+  right: 8.33%;
+  bottom: 11.04%;
+}
+
+.footer {
+  text-align: center;
+}
+.footer a {
+  text-decoration: none;
+  color: #000;
+}
